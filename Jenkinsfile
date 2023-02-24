@@ -3,13 +3,13 @@ pipeline {
 
     tools {
         // Install the Maven version configured as "M3" and add it to the path.
-        maven "Maven3.9"
+        maven "maven3.9"
     }
 
     stages {
         stage('checkout') {
             steps {
-                checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/keyspaceits/javawebapp.git']])
+                checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/renukumar235/java-app.git']])
             }
         }
         stage('build') {
@@ -20,7 +20,7 @@ pipeline {
         }
         stage('build-notify') {
             steps {
-                slackSend channel: 'opsteam', message: 'build success', teamDomain: 'creativeworks-corp', tokenCredentialId: 'slack'
+                slackSend channel: 'channel1', message: 'build success', tokenCredentialId: 'slack'
             }
         }
         stage('CodeQuality') {
