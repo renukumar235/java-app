@@ -20,8 +20,8 @@ pipeline {
         }
         stage('build-notify') {
             steps {
-                slackSend channel: 'channel1', message: 'build success', tokenCredentialId: 'slack'
-            }
+                slackSend channel: 'channel01', message: 'build success', tokenCredentialId: 'slack'
+            }   
         }
         stage('Deploy to QA') {
             steps {
@@ -30,7 +30,7 @@ pipeline {
         }
         stage('Deploy-notify') {
             steps {
-                slackSend channel: 'opsteam', message: 'Deployment To QA Success', teamDomain: 'creativeworks-corp', tokenCredentialId: 'slack'
+                slackSend channel: 'channel01', message: 'Deploy success', tokenCredentialId: 'slack'
             }
         }
     }
